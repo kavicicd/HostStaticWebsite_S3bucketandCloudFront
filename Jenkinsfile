@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kravalji_Gitea_aakash', url: 'http://192.168.0.246:3000/kravalji/terraform_automation.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kavicicd', url: 'https://github.com/kavicicd/HostStaticWebsite_S3bucketandCloudFront.git']])
             }
         }
         stage("terraform init") {
@@ -24,7 +24,7 @@ pipeline {
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
-                        dir('CreateEC2InstancewithElasticIP_VPC_SG') {
+                        dir('HostStaticWebsite_S3bucketandCloudFront') {
                             bat "${terraformPath}\\terraform init -reconfigure"
                         }
                     }
@@ -39,7 +39,7 @@ pipeline {
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
-                        dir('CreateEC2InstancewithElasticIP_VPC_SG') {
+                        dir('HostStaticWebsite_S3bucketandCloudFront') {
                             bat "${terraformPath}\\terraform plan"
                         }
                     }
@@ -56,7 +56,7 @@ pipeline {
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
-                        dir('CreateEC2InstancewithElasticIP_VPC_SG') {
+                        dir('HostStaticWebsite_S3bucketandCloudFront') {
                             if (action == 'apply') {
                                 bat "${terraformPath}\\terraform apply --auto-approve"
                             } else if (action == 'destroy') {
