@@ -17,7 +17,7 @@ terraforms3bucket.tf: Specifies the S3 bucket configuration, including versionin
 
 # Usage:
 Ensure you have Terraform installed.
-Configure AWS credentials with necessary permissions.
+Configure AWS credentials with the necessary permissions.
 Adjust variables or settings in the Terraform files as needed.
 Execute Terraform commands (terraform init, terraform plan, terraform apply) to provision AWS resources.
 Optionally, set up a CI/CD pipeline in Jenkins using Jenkinsfile for automated deployments.
