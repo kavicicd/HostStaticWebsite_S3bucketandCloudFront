@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kavicicd', url: 'https://github.com/kavicicd/HostStaticWebsite_S3bucketandCloudFront.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kavirajravalji0410', url: 'https://github.com/kavirajravalji0410/HostStaticWebsite_S3bucketandCloudFront.git']])
             }
         }
         stage("terraform init") {
