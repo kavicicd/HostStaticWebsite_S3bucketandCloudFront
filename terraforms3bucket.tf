@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-2"
 }
 
-resource "aws_s3_bucket" "swftest" {
+resource "aws_s3_bucket" "terraform" {
   bucket = "terraformtest.kavicid.in"
 
   server_side_encryption_configuration {
@@ -25,7 +25,7 @@ resource "aws_s3_bucket" "swftest" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "PUT", "POST", "DELETE"]
-    allowed_origins = ["https://${data.aws_cloudfront_distribution.swftest_cdn_data.domain_name}"]
+    allowed_origins = ["https://${data.aws_cloudfront_distribution.terraform_cdn_data.domain_name}"]
   }
 
   cors_rule {
@@ -40,20 +40,20 @@ resource "aws_s3_bucket" "swftest" {
   }
 
   tags = {
-    name = "swftest_angular"
+    name = "terraform_angular"
   }
 
   acl           = "private"
   force_destroy = true
 }
 
-resource "aws_s3_bucket_policy" "swftest" {
-  bucket = aws_s3_bucket.swftest.id
+resource "aws_s3_bucket_policy" "terraform" {
+  bucket = aws_s3_bucket.terraform.id
   policy = file("s3_bucket_policy.json")
 }
 
-resource "aws_s3_bucket_public_access_block" "swftest" {
-  bucket              = aws_s3_bucket.swftest.id
+resource "aws_s3_bucket_public_access_block" "terraform" {
+  bucket              = aws_s3_bucket.terraform.id
   block_public_acls   = false
   block_public_policy = false
 }
@@ -61,7 +61,7 @@ resource "aws_s3_bucket_public_access_block" "swftest" {
 
 
 resource "null_resource" "upload_angular_build" {
-  depends_on = [aws_s3_bucket.swftest, aws_cloudfront_distribution.swftest_cdn]
+  depends_on = [aws_s3_bucket.terraform, aws_cloudfront_distribution.terraform_cdn]
   triggers = {
     always_run = "${timestamp()}"
   }
