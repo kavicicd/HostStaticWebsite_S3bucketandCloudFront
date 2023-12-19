@@ -1,5 +1,5 @@
 
-resource "aws_cloudfront_distribution" "swftest_cdn" {
+resource "aws_cloudfront_distribution" "terraform_cdn" {
   origin {
     domain_name = "terraformtest.kavicid.in.s3-website.us-east-2.amazonaws.com"
     origin_id   = "terraformtest.kavicid.in.s3.us-east-2.amazonaws.com"
@@ -55,10 +55,10 @@ resource "aws_cloudfront_distribution" "swftest_cdn" {
 
   comment = "terraformtest.kavicid.in"
 }
-data "aws_cloudfront_distribution" "swftest_cdn_data" {
-  id = aws_cloudfront_distribution.swftest_cdn.id
+data "aws_cloudfront_distribution" "terraform_cdn_data" {
+  id = aws_cloudfront_distribution.terraform_cdn.id
 }
 
 output "cloudfront_domain_name" {
-  value = data.aws_cloudfront_distribution.swftest_cdn_data.domain_name
+  value = data.aws_cloudfront_distribution.terraform_cdn_data.domain_name
 }
