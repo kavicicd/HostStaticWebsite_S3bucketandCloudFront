@@ -67,6 +67,6 @@ resource "null_resource" "upload_angular_build" {
   }
 
   provisioner "local-exec" {
-    command = "aws s3 cp D:\\Terraform_Project\\angular\\dist\\s3statichosting\\ s3://terraformtest.kavicid.in/ --recursive"
+    command = "aws s3 cp D:\\Terraform\\code_deploy_terraform\\angular\\ s3://terraformtest.kavicid.in/ --recursive"
   }
 }
