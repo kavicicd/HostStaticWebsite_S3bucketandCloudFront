@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\terraform_EC2_Instance'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\StaticWebsiteHosting_S3_CloudFront'
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\terraform_EC2_Instance'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\StaticWebsiteHosting_S3_CloudFront'
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\terraform_EC2_Instance'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\StaticWebsiteHosting_S3_CloudFront'
                     def action = params.TerraformAction
                     echo "Terraform action is --> ${action}"
                     
