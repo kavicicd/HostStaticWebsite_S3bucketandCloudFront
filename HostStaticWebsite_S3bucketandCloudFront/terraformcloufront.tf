@@ -44,7 +44,7 @@ resource "aws_cloudfront_distribution" "terraform_cdn" {
   aliases = ["terraformtest.kavicid.in"]
 
   viewer_certificate {
-    acm_certificate_arn      = "arn:aws:acm:us-east-1:1234567890:certificate/4d297929-53a8-40d0-baca-fe79d43345435d"
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:715304697930:certificate/4d297929-53a8-40d0-baca-fe79d3aaf0b3"
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
